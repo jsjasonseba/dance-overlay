@@ -6,7 +6,7 @@ Useful tool to overlay splash effects on dance videos
 
 ## Usage
 
-First, insatll the requirements
+First, install the requirements
 ```bash
 pip install -r requirements.txt
 ```
