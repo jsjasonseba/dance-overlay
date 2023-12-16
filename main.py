@@ -2,6 +2,7 @@ import cv2
 import random
 import mediapipe as mp
 import numpy as np
+import math
 
 ## initialize pose estimator
 mp_drawing = mp.solutions.drawing_utils
@@ -38,8 +39,8 @@ def overlay_image (base_img, overlay_img, x_offset=0, y_offset=0, fill = False, 
 
     
 
-    y1, y2 = y_offset - int(overlay_img.shape[0]/2), y_offset + int(overlay_img.shape[0]/2)
-    x1, x2 = x_offset - int(overlay_img.shape[1]/2), x_offset + int(overlay_img.shape[1]/2)
+    y1, y2 = y_offset - math.floor(overlay_img.shape[0]/2), y_offset + math.ceil(overlay_img.shape[0]/2)
+    x1, x2 = x_offset - math.floor(overlay_img.shape[1]/2), x_offset + math.ceil(overlay_img.shape[1]/2)
 
 
     alpha_s = overlay_img[:, :, 3] / 255.0 if overlay_img.shape[2] == 4 else 1.0
